@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position); 
 
-        if (distance <= lookRadius)
+        if (true) //(distance <= lookRadius)
         {
             agent.SetDestination(target.position); 
 
