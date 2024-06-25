@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|c:\\users\\pc\\desktop\\dimension-hoppers-new\\assets\\2d\\scripts\\cardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|solutionrelative:assets\\2d\\scripts\\cardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\assets\\2d\\scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|solutionrelative:assets\\2d\\scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\assets\\2d\\scripts\\deckcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|solutionrelative:assets\\2d\\scripts\\deckcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|c:\\users\\pc\\desktop\\dimension-hoppers-new\\assets\\2d\\scripts\\cardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|solutionrelative:assets\\2d\\scripts\\cardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\assets\\2d\\scripts\\carddisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|solutionrelative:assets\\2d\\scripts\\carddisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\assets\\2d\\scripts\\deckcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|solutionrelative:assets\\2d\\scripts\\deckcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0471FCC2-6CDE-AC66-78A0-914A77EF32DF}|Assembly-CSharp.csproj|C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\assets\\2d\\scripts\\carddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,33 +38,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CardManager.cs",
               "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\Assets\\2D\\scripts\\CardManager.cs",
               "RelativeDocumentMoniker": "Assets\\2D\\scripts\\CardManager.cs",
               "ToolTip": "C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\Assets\\2D\\scripts\\CardManager.cs",
               "RelativeToolTip": "Assets\\2D\\scripts\\CardManager.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABcAAAAsAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-24T14:51:46.193Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PlayerManager.cs",
               "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\Assets\\2D\\scripts\\PlayerManager.cs",
               "RelativeDocumentMoniker": "Assets\\2D\\scripts\\PlayerManager.cs",
               "ToolTip": "C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\Assets\\2D\\scripts\\PlayerManager.cs",
               "RelativeToolTip": "Assets\\2D\\scripts\\PlayerManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAiAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwCwAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-23T12:57:11.649Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DeckControl.cs",
               "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\Assets\\2D\\scripts\\DeckControl.cs",
               "RelativeDocumentMoniker": "Assets\\2D\\scripts\\DeckControl.cs",
@@ -72,18 +72,17 @@
               "RelativeToolTip": "Assets\\2D\\scripts\\DeckControl.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T12:27:37.518Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-23T12:27:37.518Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "CardDisplay.cs",
               "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\Assets\\2D\\scripts\\CardDisplay.cs",
               "RelativeDocumentMoniker": "Assets\\2D\\scripts\\CardDisplay.cs",
               "ToolTip": "C:\\Users\\PC\\Desktop\\Dimension-Hoppers-new\\Assets\\2D\\scripts\\CardDisplay.cs",
               "RelativeToolTip": "Assets\\2D\\scripts\\CardDisplay.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwBgAAAA+AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-23T05:41:35.637Z",
               "EditorCaption": ""
@@ -98,8 +97,7 @@
               "RelativeToolTip": "Assets\\2D\\scripts\\CardData.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T05:33:40.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-23T05:33:40.846Z"
             }
           ]
         }
