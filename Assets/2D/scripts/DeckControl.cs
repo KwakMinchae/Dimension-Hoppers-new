@@ -6,7 +6,8 @@ using UnityEngine;
 public class DeckControl : MonoBehaviour
 {
     public List<CardData> cards;
-    public List<CardData> deck = new List<CardData>();
+    [SerializeField] public List<CardData> playerDeck = new List<CardData>();
+    [SerializeField] public List<CardData> enemyDeck = new List<CardData>();
     int x = 0;
 
     // Start is called before the first frame update
@@ -15,7 +16,12 @@ public class DeckControl : MonoBehaviour
         for (int i = 0; i < 30; i++)
         {
             x = Random.Range(0, 4);
-            deck[i] = cards[x];
+            playerDeck[i] = cards[x];
+        }
+        for (int j = 0; j < 30; j++)
+        {
+            x = Random.Range(0, 4);
+            enemyDeck[j] = cards[x];
         }
     }
 

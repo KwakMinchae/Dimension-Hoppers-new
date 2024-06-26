@@ -33,11 +33,11 @@ public class PlayerManager : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            index = Random.Range(0, deckControl.deck.Count - 1);
-            playerHealth -= deckControl.deck[index].CardAttackHealingAmount;
+            index = Random.Range(0, deckControl.playerDeck.Count - 1);
+            playerHealth -= deckControl.playerDeck[index].CardAttackHealingAmount;
             Debug.Log("HP: " + playerHealth);
-            Debug.Log(deckControl.deck.Count);
-            deckControl.deck.RemoveAt(index);
+            Debug.Log(deckControl.playerDeck.Count);
+            deckControl.playerDeck.RemoveAt(index);
             DestroyImmediate(cardSpawn);
         }
         if (Input.GetKeyDown(KeyCode.Space)) 

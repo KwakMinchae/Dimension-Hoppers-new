@@ -93,6 +93,7 @@
     <Compile Include="Assets\3D\Scripts\PlayerReceive.cs" />
     <Compile Include="Assets\3D\Scripts\TerrorDragon\States\ChaseState.cs" />
     <Compile Include="Assets\3D\Scripts\TerrorDragon\States\IdleState.cs" />
+    <Compile Include="Assets\2D\scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\3D\Scripts\TerrorDragon\States\PatrolState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />

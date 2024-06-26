@@ -363,6 +363,7 @@
 "Assets/2D/scripts/CardDisplay.cs"
 "Assets/2D/scripts/CardManager.cs"
 "Assets/2D/scripts/DeckControl.cs"
+"Assets/2D/scripts/EnemyBehaviour.cs"
 "Assets/2D/scripts/PlayerManager.cs"
 "Assets/3D/Input/PlayerInput.cs"
 "Assets/3D/Scripts/DragonReceive.cs"
