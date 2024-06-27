@@ -95,6 +95,7 @@
     <Compile Include="Assets\3D\Scripts\TerrorDragon\States\IdleState.cs" />
     <Compile Include="Assets\2D\scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\3D\Scripts\TerrorDragon\States\PatrolState.cs" />
+    <Compile Include="Assets\3D\Scripts\Timer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\3D\Scripts\Player\InputManager.cs" />
     <Compile Include="Assets\3D\Sword\LongSword\Scripts\SimpleRotate.cs" />
+    <Compile Include="Assets\2D\scripts\DimensionHopCard.cs" />
     <Compile Include="Assets\2D\scripts\PlayerManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
