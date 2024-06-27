@@ -11,7 +11,7 @@ public class WeaponController : MonoBehaviour
 
    void Update()
    {
-    if (Input.GetKey(KeyCode.LeftShift))
+    if (Input.GetKey(KeyCode.LeftShift) || Input.GetMouseButtonDown(0))
     {
         if (CanAttack)
         {
