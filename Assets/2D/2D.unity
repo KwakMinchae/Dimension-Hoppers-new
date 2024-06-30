@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 706294799}
   - component: {fileID: 706294800}
+  - component: {fileID: 706294801}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -257,6 +258,19 @@ MonoBehaviour:
   playerTurn: 0
   deckControl: {fileID: 1016681896}
   cardSpawn: {fileID: 4702541891068357023, guid: a0cc332fd8575cb459ebe119ecf47a57, type: 3}
+--- !u!114 &706294801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706294797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd9024279906d443830d1613c53c6f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dimensionHopCard: {fileID: 1488611813977766619}
 --- !u!1 &791141195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,7 +1312,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6101666377998573026}
-  - component: {fileID: 7620316923236931913}
   m_Layer: 0
   m_Name: Dimension Hop Card
   m_TagString: Untagged
@@ -1306,19 +1319,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &7620316923236931913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7620316923236931912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd9024279906d443830d1613c53c6f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dimensionHopCard: {fileID: 1488611813977766619}
 --- !u!1 &8233207722864557594
 GameObject:
   m_ObjectHideFlags: 0
