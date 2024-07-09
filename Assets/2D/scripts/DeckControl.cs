@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class DeckControl : MonoBehaviour
@@ -9,6 +10,8 @@ public class DeckControl : MonoBehaviour
     [SerializeField] public List<CardData> playerDeck = new List<CardData>();
     [SerializeField] public List<CardData> enemyDeck = new List<CardData>();
     int x = 0;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,7 @@ public class DeckControl : MonoBehaviour
             x = Random.Range(0, 4);
             enemyDeck[j] = cards[x];
         }
+        GameObject instance = Instantiate(Resources.Load(playerDeck[0].CardNickname, typeof(GameObject))) as GameObject;
     }
 
     // Update is called once per frame

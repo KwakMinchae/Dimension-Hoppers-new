@@ -11,4 +11,7 @@ public class CardData : ScriptableObject
     public int CardAttackHealingAmount;
     public string CardHealorAttack;
     public Sprite CardArt;
+    public string CardNickname;
 }
+    
+

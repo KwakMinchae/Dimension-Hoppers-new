@@ -19,3 +19,4 @@ MonoBehaviour:
   CardAttackHealingAmount: 15
   CardHealorAttack: Attack
   CardArt: {fileID: 21300000, guid: 337f8b62e263b4027ac4afecd1e6a3a7, type: 3}
+  CardNickname: 15 Attack
