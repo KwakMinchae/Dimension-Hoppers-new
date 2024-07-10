@@ -9,22 +9,25 @@ public class PlayerManager : MonoBehaviour
     public int manaAmmount = 10;
     public int maxMana = 10;
     public Vector3 nextPos = new Vector3(0f, 0f, 0f);
-    public bool playerTurn = false;
+    public bool playerTurn = true;
 
     public DeckControl deckControl;
     int index = 0;
 
-    [SerializeField] GameObject cardSpawn;
-    // Start is called before the first frame update
+    
+
     void Start()
     {
-        Instantiate(cardSpawn, new Vector3(-100, 0f, 0f), Quaternion.identity);
-        Instantiate(cardSpawn, new Vector3(100, 0f, 0f), Quaternion.identity);
-        //playerTurn = true;
+        //GameObject cardStart = Resources.Load(deckControl.playerDeck[0].CardNickname) as GameObject;
+        //Instantiate(cardStart);
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+      
+        playerTurn = true;
+        
+      
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (playerHealth <= 0)
@@ -38,7 +41,7 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("HP: " + playerHealth);
             Debug.Log(deckControl.playerDeck.Count);
             deckControl.playerDeck.RemoveAt(index);
-            DestroyImmediate(cardSpawn);
+            //DestroyImmediate(cardSpawn);
         }
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
@@ -56,8 +59,8 @@ public class PlayerManager : MonoBehaviour
 
     void CardSpawn()
     {
-        GameObject card = Instantiate(cardSpawn, nextPos, Quaternion.identity);
-        
-        
+        GameObject card = Instantiate(Resources.Load(deckControl.playerDeck[index].CardNickname, typeof(GameObject))) as GameObject;
+        card.transform.position = new Vector3(-800,0,1000);
+
     }
 }

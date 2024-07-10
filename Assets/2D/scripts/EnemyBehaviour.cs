@@ -8,9 +8,12 @@ public class EnemyBehaviour : MonoBehaviour
     public int enemymanaAmmount = 10;
     public int enemymaxMana = 10;
 
+    public CardData cardData;
+    [SerializeField] private List<CardData> miniDeck = new List<CardData>(5);
+
     public DeckControl deckControl;
     int index = 0;
-
+    
     public PlayerManager playerManager;
     public int playerHealth;
     public bool playerTurn;
@@ -20,35 +23,46 @@ public class EnemyBehaviour : MonoBehaviour
     {
       playerHealth = playerManager.playerHealth;
       playerTurn = playerManager.playerTurn;
-      Enemy();
+        for (int i = 0; i < 5; i++)
+        {
+            miniDeck[i] = deckControl.enemyDeck[0];
+            deckControl.enemyDeck.RemoveAt(0);
+        }
+
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerTurn == false) 
+        {
+            Enemy();
+        }
     }
 
   void Enemy()
     {
-        while (playerTurn == false && enemymaxMana>0)
+        while (playerTurn == false && enemymaxMana>0 && miniDeck.Count > 0)
         {
-            index = Random.Range(0, deckControl.enemyDeck.Count-1);
-            if (deckControl.enemyDeck[index].CardHealorAttack == "Attack" && deckControl.enemyDeck[index].CardCost <= enemymaxMana)
+            index = Random.Range(0, miniDeck.Count-1);
+            if (miniDeck[index].CardHealorAttack == "Attack" && miniDeck[index].CardCost <= enemymaxMana)
                 {
-                    playerHealth -= deckControl.enemyDeck[index].CardAttackHealingAmount;
+                    playerHealth -= miniDeck[index].CardAttackHealingAmount;
                     Debug.Log("Player took damage");
                 }
-            else if (deckControl.enemyDeck[index].CardHealorAttack == "Heal" && deckControl.enemyDeck[index].CardCost <= enemymaxMana)
+            else if (miniDeck[index].CardHealorAttack == "Heal" && miniDeck[index].CardCost <= enemymaxMana)
                 {
-                    enemyHealth += deckControl.enemyDeck[index].CardAttackHealingAmount;
+                    enemyHealth += miniDeck[index].CardAttackHealingAmount;
                     Debug.Log("Enemy Healed");
                 }
-            enemymaxMana -= deckControl.enemyDeck[index].CardCost;
+            enemymaxMana -= miniDeck[index].CardCost;
+            miniDeck.RemoveAt(index);
             Debug.Log("player health: " + playerHealth + "enemy health: " + enemyHealth + "mana: " + enemymaxMana);
             
         }
         enemymaxMana = 10;
-        playerTurn = !playerTurn;
+        playerTurn = true;
     }
 }

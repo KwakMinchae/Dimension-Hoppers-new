@@ -364,7 +364,6 @@
 "Assets/2D/scripts/DeckControl.cs"
 "Assets/2D/scripts/DimensionHopCard.cs"
 "Assets/2D/scripts/EnemyBehaviour.cs"
-"Assets/2D/scripts/GameManager.cs"
 "Assets/2D/scripts/PlayerManager.cs"
 "Assets/3D/Input/PlayerInput.cs"
 "Assets/3D/Scripts/DragonReceive.cs"

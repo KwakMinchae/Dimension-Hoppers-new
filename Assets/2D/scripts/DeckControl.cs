@@ -26,7 +26,7 @@ public class DeckControl : MonoBehaviour
             x = Random.Range(0, 4);
             enemyDeck[j] = cards[x];
         }
-        GameObject instance = Instantiate(Resources.Load(playerDeck[0].CardNickname, typeof(GameObject))) as GameObject;
+        
     }
 
     // Update is called once per frame
