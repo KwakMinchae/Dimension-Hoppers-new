@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+//this script will only be used for spawning cards afterwards 
 
 public class PlayerManager : MonoBehaviour
 {
@@ -34,15 +35,16 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.Log("GameOver");
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            index = Random.Range(0, deckControl.playerDeck.Count - 1);
-            playerHealth -= deckControl.playerDeck[index].CardAttackHealingAmount;
-            Debug.Log("HP: " + playerHealth);
-            Debug.Log(deckControl.playerDeck.Count);
-            deckControl.playerDeck.RemoveAt(index);
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        index = Random.Range(0, deckControl.playerDeck.Count - 1);
+    //        playerHealth -= deckControl.playerDeck[index].CardAttackHealingAmount;
+    //        Debug.Log("HP: " + playerHealth);
+    //        Debug.Log(deckControl.playerDeck.Count);
+    //        deckControl.playerDeck.RemoveAt(index);
             //DestroyImmediate(cardSpawn);
-        }
+    //   }
+        
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             playerTurn = !playerTurn;
