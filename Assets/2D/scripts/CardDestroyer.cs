@@ -6,24 +6,34 @@ public class CardDestroyer : MonoBehaviour
 {
     public GameObject cardPrefab;
 
+    public GameObject gameManager;
     public PlayerManager playerManager;
-    public int playerHealth;
-
+      
     public CardData cardData;
 
+    private void Start()
+    {
+        gameManager = GameObject.Find("GameManager");
+        playerManager = gameManager.GetComponent<PlayerManager>();
+    }
 
     private void OnMouseDown()
     {
-        if (cardData.CardHealorAttack == "Heal")
+        if (cardData.CardHealorAttack == "Heal" && playerManager.manaAmmount >= cardData.CardCost)
         {
-            playerHealth += cardData.CardAttackHealingAmount;
-            Destroy(cardPrefab);
-        } else
-        {
-            playerHealth -= cardData.CardAttackHealingAmount;
+            playerManager.playerHealth += cardData.CardAttackHealingAmount;
+            playerManager.manaAmmount -= cardData.CardCost;
             Destroy(cardPrefab);
         }
-        Debug.Log(playerHealth);
+        else if (cardData.CardHealorAttack == "Attack" && playerManager.manaAmmount >= cardData.CardCost)
+        {
+            playerManager.enemyHealth -= cardData.CardAttackHealingAmount;
+            playerManager.manaAmmount -= cardData.CardCost;
+            Destroy(cardPrefab);
+        }
+        
+        Debug.Log("Enemy health is " + playerManager.enemyHealth);
+        Debug.Log("Player health is " + playerManager.playerHealth);
         
     }
 }

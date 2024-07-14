@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 2744418815761988415}
-  playerManager: {fileID: 0}
-  playerHealth: 500
+  gameManager: {fileID: 0}
+  playerHealth: 0
   cardData: {fileID: 11400000, guid: 06a3ffa283f3c2b4b996e55495fc210e, type: 2}
 --- !u!61 &5841476506802401348
 BoxCollider2D:

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 //this script will only be used for spawning cards afterwards 
 
 public class PlayerManager : MonoBehaviour
@@ -9,41 +11,51 @@ public class PlayerManager : MonoBehaviour
     public int playerHealth = 500;
     public int manaAmmount = 10;
     public int maxMana = 10;
-    public Vector3 nextPos = new Vector3(0f, 0f, 0f);
-    public bool playerTurn = true;
+
+    public int enemyHealth = 500;
+    public int enemymanaAmmount = 10;
+    public int enemymaxMana = 10;
+
+    public bool playerTurn = false;
+    public int gameCycle = 0;
+    public bool gameover = false;
+    public int lastSpawn = 0;
+
+    public Vector3[] nextPos = new Vector3[5];
+    public int posAvailable = 0; //index for nextPos
 
     public DeckControl deckControl;
     int index = 0;
 
-    
+    public TextMeshProUGUI manaText;
+    public TextMeshProUGUI playerHealthText;
+    public TextMeshProUGUI enemyHealthText;
+
 
     void Start()
     {
-        //GameObject cardStart = Resources.Load(deckControl.playerDeck[0].CardNickname) as GameObject;
-        //Instantiate(cardStart);
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-      
-        playerTurn = true;
-        
-      
+        playerTurn = true;   
 
     }
 
     void Update()
     {
-        if (playerHealth <= 0)
+        manaText.text = manaAmmount.ToString();
+        playerHealthText.text = playerHealth.ToString(); 
+        enemyHealthText.text = enemyHealth.ToString();
+
+
+        if (playerHealth <= 0 && gameover != false)
         {
-            Debug.Log("GameOver");
+            Debug.Log("Game Over, enemy wins");
+            gameover = true;
         }
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        index = Random.Range(0, deckControl.playerDeck.Count - 1);
-    //        playerHealth -= deckControl.playerDeck[index].CardAttackHealingAmount;
-    //        Debug.Log("HP: " + playerHealth);
-    //        Debug.Log(deckControl.playerDeck.Count);
-    //        deckControl.playerDeck.RemoveAt(index);
-            //DestroyImmediate(cardSpawn);
-    //   }
+        else if (enemyHealth <= 0 && gameover != false)
+        {
+            Debug.Log("Game Over, player wins");
+            gameover = true;
+        }
+
         
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
@@ -52,17 +64,47 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {if (playerTurn == true)
+    {if (playerTurn == true && gameCycle == 0)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                CardSpawn();
+            }
+            gameCycle++;
+        }
+        else if (playerTurn == true && gameCycle%2 == 0 )
         {
             CardSpawn();
-            playerTurn = false;
+            gameCycle++;
+            manaAmmount = 10;
+        }
+
+    if (lastSpawn % 3 == 0)
+        {
+            DimensionHopCardSpawn();
+            lastSpawn++;
         }
     }
 
     void CardSpawn()
     {
         GameObject card = Instantiate(Resources.Load(deckControl.playerDeck[index].CardNickname, typeof(GameObject))) as GameObject;
-        card.transform.position = new Vector3(-800,0,1000);
+        card.transform.position = nextPos[posAvailable];
+        posAvailable++;
+        index++;
+        if (posAvailable > 4) 
+        {
+            posAvailable = 0;
+        }
+        if (index >= 30)
+        {
+            index = 0;
+        }
+    }
 
+    void DimensionHopCardSpawn()
+    {
+        GameObject dimensionHopCard = Instantiate(Resources.Load("Dimension Hop", typeof(GameObject))) as GameObject;
+        dimensionHopCard.transform.position = new Vector3(700, 0, 1000);
     }
 }

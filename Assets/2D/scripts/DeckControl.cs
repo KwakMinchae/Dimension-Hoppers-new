@@ -11,9 +11,6 @@ public class DeckControl : MonoBehaviour
     [SerializeField] public List<CardData> enemyDeck = new List<CardData>();
     int x = 0;
 
-    
-
-    // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < 30; i++)
@@ -26,12 +23,6 @@ public class DeckControl : MonoBehaviour
             x = Random.Range(0, 4);
             enemyDeck[j] = cards[x];
         }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }
