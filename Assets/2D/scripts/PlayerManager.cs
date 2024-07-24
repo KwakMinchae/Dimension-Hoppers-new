@@ -30,12 +30,12 @@ public class PlayerManager : MonoBehaviour
     public TextMeshProUGUI manaText;
     public TextMeshProUGUI playerHealthText;
     public TextMeshProUGUI enemyHealthText;
-
+ 
 
     void Start()
     {
         playerTurn = true;   
-
+        LoadHealth();
     }
 
     void Update()
@@ -43,7 +43,6 @@ public class PlayerManager : MonoBehaviour
         manaText.text = manaAmmount.ToString();
         playerHealthText.text = playerHealth.ToString(); 
         enemyHealthText.text = enemyHealth.ToString();
-
 
         if (playerHealth <= 0 && gameover != false)
         {
@@ -56,12 +55,29 @@ public class PlayerManager : MonoBehaviour
             gameover = true;
         }
 
-        
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             playerTurn = !playerTurn;
         }
+
+// Playerpref for Health
+        if (Time.timeSinceLevelLoad >= 29)
+        {
+            SaveHealth();
+        }
     }
+
+    void SaveHealth()
+    {
+        PlayerPrefs.SetInt("PlayerHealth", playerHealth);
+        PlayerPrefs.Save();
+    }
+
+    void LoadHealth()
+    {
+        playerHealth = PlayerPrefs.GetInt("PlayerHealth", 500); 
+    }
+// Playerpref for Health (ended)
 
     private void FixedUpdate()
     {if (playerTurn == true && gameCycle == 0)

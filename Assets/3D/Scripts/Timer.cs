@@ -8,15 +8,18 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText; 
     [SerializeField] float remainingTime; 
-    [SerializeField] string sceneName = "> scene name goes here <";
+    [SerializeField] string sceneName = "2D";
     [SerializeField] private Camera camera;
+    [SerializeField] GameObject thisscene;
 
     // Update is called once per frame
     void Update()
     {
-        if (remainingTime <= 0)
+        //int playerHealth = PlayerReceive.playerHealth; 
+        if (remainingTime <= 0) //|| (playerHealth == 0))
         {
             SceneManager.LoadScene( sceneName );
+            Destroy(thisscene);
         }
 
         remainingTime -= Time.deltaTime;
