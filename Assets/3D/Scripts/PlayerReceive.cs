@@ -15,6 +15,7 @@ public class PlayerReceive : MonoBehaviour
     private void Awake()
     {
         Playerhealthbar = GetComponentInChildren<PlayerHealthbar>();
+        int playerHealth = 500;
     }
 
     void start()

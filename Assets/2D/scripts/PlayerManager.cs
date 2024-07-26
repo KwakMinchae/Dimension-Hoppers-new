@@ -70,12 +70,14 @@ public class PlayerManager : MonoBehaviour
     void SaveHealth()
     {
         PlayerPrefs.SetInt("PlayerHealth", playerHealth);
+        PlayerPrefs.SetInt("EnemyHealth", enemyHealth); 
         PlayerPrefs.Save();
     }
 
     void LoadHealth()
     {
         playerHealth = PlayerPrefs.GetInt("PlayerHealth", 500); 
+        enemyHealth = PlayerPrefs.GetInt("EnemyHealth", 500); 
     }
 // Playerpref for Health (ended)
 

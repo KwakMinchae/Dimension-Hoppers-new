@@ -5,16 +5,18 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public float lookRadius = 10f; 
+    public float lookRadius = 300f; 
 
     Transform target; 
     NavMeshAgent agent; 
+        float speed = 10f; 
 
     // Start is called before the first frame update
     void Start()
     {
         target = PlayerTracker.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed; 
     }
 
     // Update is called once per frame

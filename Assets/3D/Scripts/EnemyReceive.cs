@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int maxHP = 500;
-    public int HP = 500;
+    public int enemyHealth = 500;
     //public Animator animator;
     public Collider EnemyCollider;
     public Rigidbody rb;
@@ -24,9 +24,31 @@ public class Enemy : MonoBehaviour
         EnemyCollider.isTrigger = true;
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;   
-        healthbar.UpdateHealthbar(HP, maxHP);
+        healthbar.UpdateHealthbar(enemyHealth, maxHP);
+
+//Playerpref for enemyHealth
+        LoadHealth(); 
+    }
+    
+    void LoadHealth()
+    {
+        enemyHealth = PlayerPrefs.GetInt("EnemyHealth", 500); //default is 500. 
     }
 
+    void Update()
+    {
+        if (Time.timeSinceLevelLoad >= 29)
+        {
+            SaveHealth();
+        }
+    }
+
+    void SaveHealth()
+    {
+        PlayerPrefs.SetInt("EnemyHealth", enemyHealth); 
+        PlayerPrefs.Save(); 
+    }
+//End of PlayerPref
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Sword")
@@ -37,10 +59,10 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        HP -= damageAmount;
-        healthbar.UpdateHealthbar(HP, maxHP);
+        enemyHealth -= damageAmount;
+        healthbar.UpdateHealthbar(enemyHealth, maxHP);
 
-        if (HP<=0)
+        if (enemyHealth<=0)
         {
             //animator.SetTrigger("Dead 0");
             Destroy(orange);
