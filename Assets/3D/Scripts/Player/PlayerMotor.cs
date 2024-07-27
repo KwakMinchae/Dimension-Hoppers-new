@@ -7,7 +7,7 @@ public class PlayerMotor : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool isGrounded;
-    public float speed = 200f;
+    public float speed = 10f;
     public float gravity = -9.8f;
     public float jumpHeight = 1f;
 

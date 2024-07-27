@@ -8,6 +8,7 @@ public class PatrolState : StateMachineBehaviour
     List<Transform> wayPoints = new List<Transform>(); 
     //'new' = empty list? 
     NavMeshAgent agent; 
+    public float speed = 50f; 
     
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -19,6 +20,7 @@ public class PatrolState : StateMachineBehaviour
             wayPoints.Add(t); 
 
         agent.SetDestination(wayPoints[Random.Range(0, wayPoints.Count)].position); 
+        agent.speed = speed; 
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -31,7 +33,7 @@ public class PatrolState : StateMachineBehaviour
        timer += Time.deltaTime; 
        if (timer > 10)
        {
-            animator.SetBool("isPatrolling", false); 
+            animator.SetBool("IsPatrolling", false); 
        }
     }
 

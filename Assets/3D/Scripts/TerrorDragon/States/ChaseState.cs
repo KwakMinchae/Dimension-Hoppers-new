@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class ChaseState : StateMachineBehaviour
 {
     NavMeshAgent agent; 
+    public float speed = 50f; 
     Transform player;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -13,7 +14,8 @@ public class ChaseState : StateMachineBehaviour
     {
        agent = animator.GetComponent<NavMeshAgent>();
        player = GameObject.FindGameObjectWithTag("Player").transform;
-       agent.speed = 3.5f;
+       //agent.speed = 180f;
+       agent.speed = speed;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

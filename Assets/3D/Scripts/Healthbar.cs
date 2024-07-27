@@ -18,6 +18,7 @@ public class Healthbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = camera.transform.rotation;
+        //transform.rotation = camera.transform.rotation;
+        transform.rotation = Quaternion.LookRotation(transform.position - camera.transform.position); 
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerReceive : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class PlayerReceive : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if ((other.gameObject.tag == "Enemy") || (other.gameObject.tag == "Dragon"))
         {
             TakeDamage(10);
         }
@@ -66,12 +67,13 @@ public class PlayerReceive : MonoBehaviour
 
         if (playerHealth<=0)
         {
-            Debug.Log("Player is injured");
+           loadEnd();
         }
-        else
-        {
-            Debug.Log("Player is dead");
-        }
+    }
+
+    public void loadEnd()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 
 }

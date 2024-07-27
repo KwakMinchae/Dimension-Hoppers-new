@@ -30,7 +30,6 @@ public class EnemyWeaponControl : MonoBehaviour
         AudioSource ac = GetComponent<AudioSource>();
         ac.PlayOneShot(SwordAttackSound);
         StartCoroutine(ResetAttackCoolDown());
-
    }
 
    IEnumerator ResetAttackCoolDown()

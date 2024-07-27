@@ -376,6 +376,7 @@
 "Assets/3D/Scripts/Healthbar.cs"
 "Assets/3D/Scripts/Interactable.cs"
 "Assets/3D/Scripts/Player/InputManager.cs"
+"Assets/3D/Scripts/Player/PlayerAudio.cs"
 "Assets/3D/Scripts/Player/PlayerLook.cs"
 "Assets/3D/Scripts/Player/PlayerMotor.cs"
 "Assets/3D/Scripts/Player/WeaponController.cs"
@@ -389,6 +390,7 @@
 "Assets/3D/Scripts/TerrorDragon/States/PatrolState.cs"
 "Assets/3D/Scripts/Timer.cs"
 "Assets/3D/Sword/LongSword/Scripts/SimpleRotate.cs"
+"Assets/GameOver (lost)/GameOver.cs"
 "Assets/Main Menu/Scripts/MainMenuGameManager.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
@@ -434,6 +436,7 @@
 "Assets/Tom's Terrain Tools/Scripts/SpawnInArea.cs"
 "Assets/Tom's Terrain Tools/Scripts/TerrainQualitySettings.cs"
 "Assets/Tom's Terrain Tools/Scripts/TreeExplosion.cs"
+"Assets/YouWin/YouWin.cs"
 -langversion:9.0
 /deterministic
 /optimize+
