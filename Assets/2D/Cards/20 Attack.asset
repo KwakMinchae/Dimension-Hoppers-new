@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 20 Attack
   m_EditorClassIdentifier: 
   CardName: Great Sword
-  CardDescription: I am heavy. Be ready.
+  CardDescription: A Heavy Type Sword for Big Attacks
   CardCost: 3
   CardAttackHealingAmount: 20
   CardHealorAttack: Attack
-  CardArt: {fileID: 21300000, guid: 592d4d241cc3f403496c0d98e1368fe8, type: 3}
+  CardArt: {fileID: 21300000, guid: 16c856f108e8de64d8edc4126c69f927, type: 3}
   CardNickname: 20 Attack

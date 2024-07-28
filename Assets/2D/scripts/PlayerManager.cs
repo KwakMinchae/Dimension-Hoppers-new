@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    public int playerHealth = 50;
+    public int playerHealth = 500;
     public int manaAmmount = 10;
     public int maxMana = 10;
 
@@ -112,7 +112,7 @@ public class PlayerManager : MonoBehaviour
         }
         else if (playerTurn == true && Spawned == false)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
                 CardSpawn();
             }

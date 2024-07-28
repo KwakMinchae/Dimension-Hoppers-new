@@ -11,6 +11,7 @@ public class CardDestroyer : MonoBehaviour
       
     public CardData cardData;
 
+    public AudioClip popSoundEffect;
     public bool turnEnd = false;
 
     private void Start()
@@ -25,6 +26,7 @@ public class CardDestroyer : MonoBehaviour
         {
             playerManager.playerHealth += cardData.CardAttackHealingAmount;
             playerManager.manaAmmount -= cardData.CardCost;
+            AudioManager.Instance.Play(popSoundEffect);
             playerManager.actionText.text = "Nice! A potion! You healed " + cardData.CardAttackHealingAmount + " health!";
             Destroy(cardPrefab);
         }
@@ -32,6 +34,7 @@ public class CardDestroyer : MonoBehaviour
         {
             playerManager.enemyHealth -= cardData.CardAttackHealingAmount;
             playerManager.manaAmmount -= cardData.CardCost;
+            AudioManager.Instance.Play(popSoundEffect);
             playerManager.actionText.text = "Great job! You swung your " + cardData.CardName + " at the enemy and dealt " + cardData.CardAttackHealingAmount + " damage to the enemy!";
             Destroy(cardPrefab);
         } else 

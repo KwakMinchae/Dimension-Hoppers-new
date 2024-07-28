@@ -143,8 +143,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 2744418815761988415}
   gameManager: {fileID: 0}
-  playerHealth: 0
+  playerManager: {fileID: 0}
   cardData: {fileID: 11400000, guid: 06a3ffa283f3c2b4b996e55495fc210e, type: 2}
+  popSoundEffect: {fileID: 8300000, guid: 393ae400a0c6024498ef48743eebccc0, type: 3}
+  turnEnd: 0
 --- !u!61 &5841476506802401348
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -336,7 +338,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 10
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1

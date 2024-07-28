@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5 Heal
   m_EditorClassIdentifier: 
   CardName: Low-Grade Potion
-  CardDescription: Who drank my potion? And why is it expired???
+  CardDescription: A Potion that was crafted by an amateur
   CardCost: 2
   CardAttackHealingAmount: 5
   CardHealorAttack: Heal
