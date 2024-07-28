@@ -9,11 +9,11 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    public int playerHealth = 500;
+    public int playerHealth;
     public int manaAmmount = 10;
     public int maxMana = 10;
 
-    public int enemyHealth = 500;
+    public int enemyHealth;
     public int enemymanaAmmount = 10;
     public int enemymaxMana = 10;
 

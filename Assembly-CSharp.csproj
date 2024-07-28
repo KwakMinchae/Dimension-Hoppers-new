@@ -73,6 +73,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\2D\scripts\CardData.cs" />
+    <Compile Include="Assets\Main Menu\Scripts\PlayerPrefHandling.cs" />
     <Compile Include="Assets\3D\Scripts\Interactable.cs" />
     <Compile Include="Assets\3D\Scripts\EnemyReceive.cs" />
     <Compile Include="Assets\3D\Scripts\Player\PlayerMotor.cs" />

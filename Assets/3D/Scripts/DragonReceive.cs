@@ -18,7 +18,7 @@ public class Dragon : MonoBehaviour
         healthbar = GetComponentInChildren<Healthbar>();
     }
 
-    void start()
+    void Start()
     {
         DragonCollider = GetComponent<Collider>();
         DragonCollider.isTrigger = true;

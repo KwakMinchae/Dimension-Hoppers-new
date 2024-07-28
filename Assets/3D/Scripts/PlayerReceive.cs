@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerReceive : MonoBehaviour
 {
     public int maxHP = 500;
-    public int playerHealth = 500; 
+    public int playerHealth; 
     //public Animator animator;
     public Collider PlayerCollider;
     //public Rigidbody rb;
@@ -16,10 +16,9 @@ public class PlayerReceive : MonoBehaviour
     private void Awake()
     {
         Playerhealthbar = GetComponentInChildren<PlayerHealthbar>();
-        int playerHealth = 500;
     }
 
-    void start()
+    void Start()
     {
         PlayerCollider = GetComponent<Collider>();
         PlayerCollider.isTrigger = true;
@@ -33,7 +32,7 @@ public class PlayerReceive : MonoBehaviour
 
     void LoadHealth()
     {
-        playerHealth = PlayerPrefs.GetInt("PlayerHealth", 500); //default is 500. 
+        playerHealth = PlayerPrefs.GetInt("PlayerHealth"); //default is 500. 
     }
 
     void Update()

@@ -400,6 +400,7 @@
 "Assets/Game Over/GameOverManager.cs"
 "Assets/GameOver (lost)/GameOver.cs"
 "Assets/Main Menu/Scripts/MainMenuGameManager.cs"
+"Assets/Main Menu/Scripts/PlayerPrefHandling.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"
