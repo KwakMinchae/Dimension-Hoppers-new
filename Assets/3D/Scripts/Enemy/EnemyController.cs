@@ -8,32 +8,32 @@ public class EnemyController : MonoBehaviour
     public float lookRadius = 300f; 
 
     Transform target; 
-    NavMeshAgent agent; 
-        float speed = 10f; 
+    //Transform target;
+    public NavMeshAgent agent; 
+        float speed = 20f; 
 
     // Start is called before the first frame update
     void Start()
     {
         target = PlayerTracker.instance.player.transform;
+        //target = GameObject.FindGameObjectWithTag("Player"); 
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed; 
+
+        //float distance = Vector3.Distance(target.position, agent.transform.position); 
+        //agent.SetDestination(target.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position); 
+        //agent.destination = target.transform.position; 
+        float distance = Vector3.Distance(target.position, agent.transform.position); 
+        agent.SetDestination(target.position);
 
-        if (true) //(distance <= lookRadius)
+        if (true) 
         {
-            agent.SetDestination(target.position); 
-
-            if (distance <= agent.stoppingDistance)
-            {
-                //Attack the target 
-                FaceTarget();
-            }
-
+            FaceTarget();
         }
     }
 
@@ -48,5 +48,5 @@ public class EnemyController : MonoBehaviour
     {
         Gizmos.color = Color.red; 
         Gizmos.DrawWireSphere(transform.position, lookRadius);  
-    }
+    } 
 }
