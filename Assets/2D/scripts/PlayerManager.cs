@@ -63,17 +63,18 @@ public class PlayerManager : MonoBehaviour
             playerTurn = false;
             Debug.Log("Space: " + playerTurn);
         }
-
-        //if (playerHealth <= 0 )
+//Commented out? 
+        if (playerHealth <= 0 )
         {
-        //    SceneManager.LoadScene("GameOver");
-        //    gameover = true;
+            SceneManager.LoadScene("GameOver");
+            gameover = true;
         }
-        //else if (enemyHealth <= 0)
+        else if (enemyHealth <= 0)
         {
-        //    SceneManager.LoadScene("YouWin");
-        //    gameover = true;
+            SceneManager.LoadScene("YouWin");
+            gameover = true;
         }
+//Commented out?
 
 // Playerpref for Health
         if (Time.timeSinceLevelLoad >= 29)
@@ -94,7 +95,7 @@ public class PlayerManager : MonoBehaviour
         playerHealth = PlayerPrefs.GetInt("PlayerHealth", 500); 
         enemyHealth = PlayerPrefs.GetInt("EnemyHealth", 500); 
     }
-    // Playerpref for Health (ended)
+// Playerpref for Health (ended)
 
     private void FixedUpdate()
     {

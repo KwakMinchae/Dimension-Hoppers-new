@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Dragon : MonoBehaviour
 {
     public int maxHP = 500;
-    public int dragonHealth = 500;
+    public int enemyHealth = 500;
     public Animator animator;
     public Collider DragonCollider;
     public Rigidbody rb;
@@ -24,14 +24,9 @@ public class Dragon : MonoBehaviour
         DragonCollider.isTrigger = true;
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;   
-        healthbar.UpdateHealthbar(dragonHealth, maxHP);
-
+        healthbar.UpdateHealthbar(enemyHealth, maxHP);
+//Playerpref for enemyHealth
         LoadHealth(); 
-    }
-
-    void LoadHealth()
-    {
-        dragonHealth = PlayerPrefs.GetInt("DragonHealth", 500); 
     }
 
     void Update()
@@ -44,10 +39,15 @@ public class Dragon : MonoBehaviour
 
     void SaveHealth()
     {
-        PlayerPrefs.SetInt("DragonHealth", dragonHealth);
+        PlayerPrefs.SetInt("EnemyHealth", enemyHealth);
         PlayerPrefs.Save(); 
-
     }
+
+    void LoadHealth()
+    {
+        enemyHealth = PlayerPrefs.GetInt("EnemyHealth", 500); 
+    }
+//End of Playerpref (enemyHealth)
 
     private void OnTriggerEnter(Collider other)
     {
@@ -59,10 +59,10 @@ public class Dragon : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        dragonHealth -= damageAmount;
-        healthbar.UpdateHealthbar(dragonHealth, maxHP);
+        enemyHealth -= damageAmount;
+        healthbar.UpdateHealthbar(enemyHealth, maxHP);
 
-        if (dragonHealth<=0)
+        if (enemyHealth<=0)
         {
             animator.SetTrigger("Die");
             loadEnd(); 
