@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/3D/3D.unity
     guid: d1fa2e1384f59471eb25ba3a13c31946
   - enabled: 1
-    path: Assets/GameOver (lost)/GameOver.unity
-    guid: ca54e61e182824a29a45902beb229cb9
-  - enabled: 1
     path: Assets/YouWin/YouWin.unity
     guid: d2ea3b5c4ec144a089edeadd7fcc01cf
+  - enabled: 1
+    path: Assets/GameOver (lost)/GameOver.unity
+    guid: ca54e61e182824a29a45902beb229cb9
   m_configObjects: {}

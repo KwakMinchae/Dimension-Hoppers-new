@@ -8,7 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     
 
     public CardData cardData;
-    [SerializeField] private List<CardData> miniDeck = new List<CardData>(5);
+    [SerializeField] private List<CardData> miniDeck = new List<CardData>();
 
     public DeckControl deckControl;
     int index = 0;
@@ -17,52 +17,62 @@ public class EnemyBehaviour : MonoBehaviour
     public int playerHealth;
     public bool playerTurn;
 
+    public int cardsPlayed = 0;
+    public int roundDamageToPlayer;
+    public int roundHealToEnemy;
+
     // Start is called before the first frame update
     void Start()
     {
-      playerHealth = playerManager.playerHealth;
-      
-        for (int i = 0; i < 5; i++)
-        {
-            miniDeck[i] = deckControl.enemyDeck[0];
-            deckControl.enemyDeck.RemoveAt(0);
-        }
-
-        
-
+        playerHealth = playerManager.playerHealth;
+        roundDamageToPlayer = 0;
+        roundHealToEnemy = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerManager.playerTurn == false && playerManager.gameCycle % 2 == 0 && playerManager.gameCycle > 0) 
+        if (playerManager.playerTurn == false) 
         {
-            Enemy();
+           Enemy();
         }
     }
 
   void Enemy()
     {
-        while (playerManager.playerTurn == false && playerManager.enemymaxMana>0 && miniDeck.Count > 0)
+
+        while (playerManager.enemymaxMana>0 && deckControl.enemyDeck.Count > 0)
         {
-            index = Random.Range(0, miniDeck.Count-1);
-            if (miniDeck[index].CardHealorAttack == "Attack" && miniDeck[index].CardCost <= playerManager.enemymaxMana)
+            
+                index = Random.Range(0, deckControl.enemyDeck.Count - 1);
+                if (deckControl.enemyDeck[index].CardHealorAttack == "Attack" && deckControl.enemyDeck[index].CardCost <= playerManager.enemymaxMana)
                 {
-                playerManager.playerHealth -= miniDeck[index].CardAttackHealingAmount;
-                    Debug.Log("Player took damage");
-                }
-            else if (miniDeck[index].CardHealorAttack == "Heal" && miniDeck[index].CardCost <= playerManager.enemymaxMana)
+                    playerManager.playerHealth -= deckControl.enemyDeck[index].CardAttackHealingAmount;
+                    roundDamageToPlayer += deckControl.enemyDeck[index].CardAttackHealingAmount; 
+                    cardsPlayed++;
+                    
+
+            }
+                else if (deckControl.enemyDeck[index].CardHealorAttack == "Heal" && deckControl.enemyDeck[index].CardCost <= playerManager.enemymaxMana)
                 {
-                playerManager.enemyHealth += miniDeck[index].CardAttackHealingAmount;
-                    Debug.Log("Enemy Healed");
-                }
-            playerManager.enemymaxMana -= miniDeck[index].CardCost;
-            miniDeck.RemoveAt(index);
-            Debug.Log("player health: " + playerHealth + "enemy health: " + playerManager.enemyHealth + "mana: " + playerManager.enemymaxMana);
+                    playerManager.enemyHealth += deckControl.enemyDeck[index].CardAttackHealingAmount;
+                    roundHealToEnemy += deckControl.enemyDeck[index].CardAttackHealingAmount;
+                    cardsPlayed++;
+                    
+
+            }
+                playerManager.enemymaxMana -= deckControl.enemyDeck[index].CardCost;
+                deckControl.enemyDeck.RemoveAt(index);
+            
+           
+
             
         }
+        playerManager.actionText.text = "Oh no! The enemy did " + roundDamageToPlayer + " damage to you and " + roundHealToEnemy + " health has been recovered by the enemy!";
         playerManager.enemymaxMana = 10;
         playerManager.playerTurn = true;
+        playerManager.Spawned = false;
         Debug.Log(playerManager.playerTurn);
+
     }
 }

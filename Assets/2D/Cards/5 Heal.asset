@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: Low-Grade Potion
   CardDescription: Who drank my potion? And why is it expired???
-  CardCost: 1
+  CardCost: 2
   CardAttackHealingAmount: 5
   CardHealorAttack: Heal
   CardArt: {fileID: 21300000, guid: 0ea40b00bc2963c41980bfebdf30f1a6, type: 3}

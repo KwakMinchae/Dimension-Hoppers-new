@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 //this script will only be used for spawning cards afterwards 
 
 public class PlayerManager : MonoBehaviour
 {
-    public int playerHealth = 500;
+    public int playerHealth = 50;
     public int manaAmmount = 10;
     public int maxMana = 10;
 
@@ -16,26 +17,32 @@ public class PlayerManager : MonoBehaviour
     public int enemymanaAmmount = 10;
     public int enemymaxMana = 10;
 
-    public bool playerTurn = false;
-    public int gameCycle = 0;
+    public bool playerTurn;
+    public int gameCycle;
     public bool gameover = false;
-    public int lastSpawn = 0;
+    public bool Spawned = false;
 
     public Vector3[] nextPos = new Vector3[5];
     public int posAvailable = 0; //index for nextPos
 
     public DeckControl deckControl;
-    int index = 0;
+    public int index = 0;
 
     public TextMeshProUGUI manaText;
     public TextMeshProUGUI playerHealthText;
     public TextMeshProUGUI enemyHealthText;
- 
+    public TextMeshProUGUI actionText;
+    public TextMeshProUGUI turnNumberText;
+
 
     void Start()
     {
+        Debug.Log("Before loadhealth: " + playerHealth);
         playerTurn = true;   
         LoadHealth();
+        Debug.Log("After loadhealth: " + playerHealth);
+        gameCycle = 0;
+
     }
 
     void Update()
@@ -43,21 +50,29 @@ public class PlayerManager : MonoBehaviour
         manaText.text = manaAmmount.ToString();
         playerHealthText.text = playerHealth.ToString(); 
         enemyHealthText.text = enemyHealth.ToString();
-
-        if (playerHealth <= 0 && gameover != false)
+        if (gameCycle != 4)
         {
-            Debug.Log("Game Over, enemy wins");
-            gameover = true;
+            turnNumberText.text = "Turn: " + gameCycle.ToString();
+        } else
+        {
+            turnNumberText.text = "Dimension Hopping!"; 
         }
-        else if (enemyHealth <= 0 && gameover != false)
-        {
-            Debug.Log("Game Over, player wins");
-            gameover = true;
+        
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            playerTurn = false;
+            Debug.Log("Space: " + playerTurn);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        //if (playerHealth <= 0 )
         {
-            playerTurn = !playerTurn;
+        //    SceneManager.LoadScene("GameOver");
+        //    gameover = true;
+        }
+        //else if (enemyHealth <= 0)
+        {
+        //    SceneManager.LoadScene("YouWin");
+        //    gameover = true;
         }
 
 // Playerpref for Health
@@ -79,28 +94,38 @@ public class PlayerManager : MonoBehaviour
         playerHealth = PlayerPrefs.GetInt("PlayerHealth", 500); 
         enemyHealth = PlayerPrefs.GetInt("EnemyHealth", 500); 
     }
-// Playerpref for Health (ended)
+    // Playerpref for Health (ended)
 
     private void FixedUpdate()
-    {if (playerTurn == true && gameCycle == 0)
+    {
+        if (playerTurn == true && gameCycle == 0)
         {
             for (int i = 0; i < 5; i++)
             {
                 CardSpawn();
             }
+            DimensionHopCardSpawn();
             gameCycle++;
+            Debug.Log("Initialize Gamecycle: " + gameCycle);
+            Spawned = true;
         }
-        else if (playerTurn == true && gameCycle%2 == 0 )
+        else if (playerTurn == true && Spawned == false)
         {
-            CardSpawn();
+            for (int i = 0; i < 3; i++)
+            {
+                CardSpawn();
+            }
+
             gameCycle++;
             manaAmmount = 10;
+            Spawned = true;
+            Debug.Log("Gamecycle: " + gameCycle);
         }
 
-    if (lastSpawn % 3 == 0)
+        if (gameCycle == 4)
         {
-            DimensionHopCardSpawn();
-            lastSpawn++;
+            Debug.Log("Gamecycle: " + gameCycle);
+            SceneManager.LoadScene("3D");
         }
     }
 
@@ -110,7 +135,7 @@ public class PlayerManager : MonoBehaviour
         card.transform.position = nextPos[posAvailable];
         posAvailable++;
         index++;
-        if (posAvailable > 4) 
+        if (posAvailable > 4)
         {
             posAvailable = 0;
         }

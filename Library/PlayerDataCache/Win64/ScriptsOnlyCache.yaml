@@ -1,22 +1,27 @@
 ScriptsOnlyBuild:
   usedScripts:
+    Assembly-CSharp:
+    - CardData
+    - CardDestroyer
+    - CardDisplay
+    - DimensionHopCard
     Assembly-CSharp.dll:
     - AttackState
     - CardData
-    - CardDisplay
     - ChaseState
     - DeckControl
-    - DimensionHopCard
     - Dragon
     - Enemy
     - EnemyBehaviour
     - EnemyController
     - EnemyWeaponControl
+    - GameOver
     - Healthbar
     - IdleState
     - InputManager
     - MainMenuGameManager
     - PatrolState
+    - PlayerAudio
     - PlayerHealthbar
     - PlayerLook
     - PlayerManager
@@ -25,16 +30,13 @@ ScriptsOnlyBuild:
     - PlayerTracker
     - Timer
     - WeaponController
-    NavMeshComponents.dll:
-    - UnityEngine.AI.NavMeshSurface
+    - YouWin
+    Unity.AI.Navigation.dll:
+    - Unity.AI.Navigation.NavMeshSurface
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
-    - UnityEngine.InputSystem.PlayerInput
-    - UnityEngine.InputSystem.PlayerInputManager
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
-    Unity.PlasticSCM.Editor.dll:
-    - Unity.PlasticSCM.Editor.PlasticWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -49,18 +51,25 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    Unity.VisualScripting.Core:
+    - Unity.VisualScripting.VariablesAsset
+    Unity.VisualScripting.Core.dll:
+    - Unity.VisualScripting.VariablesAsset
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI:
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
+    - UnityEngine.UI.Text
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -69,16 +78,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Slider
-    - UnityEngine.UI.Text
+    sc.terrain.painter.runtime.dll:
+    - sc.terrain.proceduralpainter.TerrainPainter
   serializedClasses:
-    Unity.InputSystem:
-    - UnityEngine.InputSystem.InputAction
-    - UnityEngine.InputSystem.InputActionProperty
-    - UnityEngine.InputSystem.PlayerInput/ControlsChangedEvent
-    - UnityEngine.InputSystem.PlayerInput/DeviceLostEvent
-    - UnityEngine.InputSystem.PlayerInput/DeviceRegainedEvent
-    - UnityEngine.InputSystem.PlayerInputManager/PlayerJoinedEvent
-    - UnityEngine.InputSystem.PlayerInputManager/PlayerLeftEvent
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
     - TMPro.FontAssetCreationSettings
@@ -94,6 +96,8 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteGlyph
     - TMPro.TMP_Style
     - TMPro.VertexGradient
+    Unity.VisualScripting.Core:
+    - Unity.VisualScripting.SerializationData
     UnityEngine.CoreModule:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
@@ -112,6 +116,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
+    sc.terrain.painter.runtime:
+    - sc.terrain.proceduralpainter.LayerSettings
   methodsToPreserve:
   - assembly: Assembly-CSharp
     fullTypeName: MainMenuGameManager
@@ -119,6 +125,18 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: MainMenuGameManager
     methodName: quitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: YouWin
+    methodName: quitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: YouWin
+    methodName: gameRestart
+  - assembly: Assembly-CSharp
+    fullTypeName: GameOver
+    methodName: quitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: GameOver
+    methodName: gameRestart
   sceneClasses:
     Assets/2D/2D.unity:
     - Class: 1
@@ -129,17 +147,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
     - Class: 48
-      Script: {instanceID: 0}
-    - Class: 65
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
@@ -148,38 +158,30 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1560}
+      Script: {instanceID: 1564}
     - Class: 114
-      Script: {instanceID: 1610}
+      Script: {instanceID: 1614}
     - Class: 114
-      Script: {instanceID: 2748}
+      Script: {instanceID: 2778}
     - Class: 114
-      Script: {instanceID: 2966}
+      Script: {instanceID: 3000}
     - Class: 114
-      Script: {instanceID: 5104}
+      Script: {instanceID: 5166}
     - Class: 114
-      Script: {instanceID: 5316}
+      Script: {instanceID: 5380}
     - Class: 114
-      Script: {instanceID: 5392}
+      Script: {instanceID: 5454}
     - Class: 114
-      Script: {instanceID: 5514}
+      Script: {instanceID: 5578}
     - Class: 114
-      Script: {instanceID: 5804}
+      Script: {instanceID: 6394}
     - Class: 114
-      Script: {instanceID: 6258}
+      Script: {instanceID: 6764}
     - Class: 114
-      Script: {instanceID: 6306}
-    - Class: 114
-      Script: {instanceID: 6674}
-    - Class: 114
-      Script: {instanceID: 7450}
-    - Class: 114
-      Script: {instanceID: 8236}
+      Script: {instanceID: 7552}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
-      Script: {instanceID: 0}
-    - Class: 136
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -241,61 +243,61 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1560}
+      Script: {instanceID: 1564}
     - Class: 114
-      Script: {instanceID: 1588}
-    - Class: 114
-      Script: {instanceID: 1610}
+      Script: {instanceID: 1592}
     - Class: 114
       Script: {instanceID: 1614}
     - Class: 114
-      Script: {instanceID: 1638}
+      Script: {instanceID: 1644}
     - Class: 114
-      Script: {instanceID: 1686}
+      Script: {instanceID: 1694}
     - Class: 114
-      Script: {instanceID: 1870}
+      Script: {instanceID: 1886}
     - Class: 114
-      Script: {instanceID: 2032}
+      Script: {instanceID: 2052}
     - Class: 114
-      Script: {instanceID: 2748}
+      Script: {instanceID: 2668}
     - Class: 114
-      Script: {instanceID: 2846}
+      Script: {instanceID: 2778}
     - Class: 114
-      Script: {instanceID: 2966}
+      Script: {instanceID: 2874}
     - Class: 114
-      Script: {instanceID: 3074}
+      Script: {instanceID: 2994}
     - Class: 114
-      Script: {instanceID: 3732}
+      Script: {instanceID: 3000}
     - Class: 114
-      Script: {instanceID: 3848}
+      Script: {instanceID: 3108}
     - Class: 114
-      Script: {instanceID: 3922}
+      Script: {instanceID: 3778}
     - Class: 114
-      Script: {instanceID: 4176}
+      Script: {instanceID: 3896}
     - Class: 114
-      Script: {instanceID: 5416}
+      Script: {instanceID: 3972}
     - Class: 114
-      Script: {instanceID: 5430}
+      Script: {instanceID: 4228}
     - Class: 114
-      Script: {instanceID: 5514}
+      Script: {instanceID: 5478}
     - Class: 114
-      Script: {instanceID: 5708}
+      Script: {instanceID: 5494}
     - Class: 114
-      Script: {instanceID: 6286}
+      Script: {instanceID: 5578}
     - Class: 114
-      Script: {instanceID: 6306}
+      Script: {instanceID: 5786}
     - Class: 114
-      Script: {instanceID: 6674}
+      Script: {instanceID: 6372}
     - Class: 114
-      Script: {instanceID: 7304}
+      Script: {instanceID: 6394}
     - Class: 114
-      Script: {instanceID: 7734}
+      Script: {instanceID: 6764}
     - Class: 114
-      Script: {instanceID: 7752}
+      Script: {instanceID: 7406}
     - Class: 114
-      Script: {instanceID: 8520}
+      Script: {instanceID: 7832}
     - Class: 114
-      Script: {instanceID: 8584}
+      Script: {instanceID: 7850}
+    - Class: 114
+      Script: {instanceID: 8634}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -306,6 +308,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 143
       Script: {instanceID: 0}
+    - Class: 154
+      Script: {instanceID: 0}
+    - Class: 156
+      Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 195
@@ -314,6 +320,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
+    - Class: 218
+      Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
     - Class: 223
@@ -321,6 +329,65 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 238
+      Script: {instanceID: 0}
+    - Class: 1953259897
+      Script: {instanceID: 0}
+    Assets/GameOver (lost)/GameOver.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1564}
+    - Class: 114
+      Script: {instanceID: 1614}
+    - Class: 114
+      Script: {instanceID: 2778}
+    - Class: 114
+      Script: {instanceID: 3000}
+    - Class: 114
+      Script: {instanceID: 3326}
+    - Class: 114
+      Script: {instanceID: 4412}
+    - Class: 114
+      Script: {instanceID: 5578}
+    - Class: 114
+      Script: {instanceID: 6394}
+    - Class: 114
+      Script: {instanceID: 6764}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     Assets/Main Menu/Main Menu.unity:
     - Class: 1
@@ -337,6 +404,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
@@ -346,31 +415,102 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1560}
+      Script: {instanceID: 1564}
     - Class: 114
-      Script: {instanceID: 1610}
+      Script: {instanceID: 1614}
     - Class: 114
-      Script: {instanceID: 2266}
+      Script: {instanceID: 1790}
     - Class: 114
-      Script: {instanceID: 2748}
+      Script: {instanceID: 2288}
     - Class: 114
-      Script: {instanceID: 2966}
+      Script: {instanceID: 2778}
     - Class: 114
-      Script: {instanceID: 3290}
+      Script: {instanceID: 3000}
     - Class: 114
-      Script: {instanceID: 4308}
+      Script: {instanceID: 3326}
     - Class: 114
-      Script: {instanceID: 4432}
+      Script: {instanceID: 3538}
     - Class: 114
-      Script: {instanceID: 4716}
+      Script: {instanceID: 4364}
     - Class: 114
-      Script: {instanceID: 5514}
+      Script: {instanceID: 4490}
     - Class: 114
-      Script: {instanceID: 6306}
+      Script: {instanceID: 4774}
     - Class: 114
-      Script: {instanceID: 6674}
+      Script: {instanceID: 5454}
     - Class: 114
-      Script: {instanceID: 24972}
+      Script: {instanceID: 5578}
+    - Class: 114
+      Script: {instanceID: 5882}
+    - Class: 114
+      Script: {instanceID: 6344}
+    - Class: 114
+      Script: {instanceID: 6394}
+    - Class: 114
+      Script: {instanceID: 6764}
+    - Class: 114
+      Script: {instanceID: 8212}
+    - Class: 114
+      Script: {instanceID: 8344}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/YouWin/YouWin.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1564}
+    - Class: 114
+      Script: {instanceID: 1614}
+    - Class: 114
+      Script: {instanceID: 2778}
+    - Class: 114
+      Script: {instanceID: 3000}
+    - Class: 114
+      Script: {instanceID: 3326}
+    - Class: 114
+      Script: {instanceID: 4412}
+    - Class: 114
+      Script: {instanceID: 4880}
+    - Class: 114
+      Script: {instanceID: 5578}
+    - Class: 114
+      Script: {instanceID: 6394}
+    - Class: 114
+      Script: {instanceID: 6764}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -428,13 +568,19 @@ ScriptsOnlyBuild:
     className: PlayerInput
   - hash:
       serializedVersion: 2
+      Hash: 5678eeabda8a6bd2ef2efee576fb4cb3
+    assemblyName: Assembly-CSharp
+    namespaceName: TTT
+    className: SpawnInArea
+  - hash:
+      serializedVersion: 2
       Hash: aa2d5b3aa0f672b25d95b265d8c94d70
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: AttackState
   - hash:
       serializedVersion: 2
-      Hash: 34e4e28e58a9731f7d3b02df3a3034de
+      Hash: dbe18f47ea9d8e42f718e13322b37e25
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ChaseState
@@ -462,6 +608,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: 9101cbfac422457d9c22093783fc10bd
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CardDestroyer
   - hash:
       serializedVersion: 2
       Hash: d0caa48b5fe6778ce3f0de7aec45c4e6
@@ -530,12 +682,6 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: a8450f80f37db3f1360c0f5234e89eb8
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: AgentLinkMover
-  - hash:
-      serializedVersion: 2
       Hash: ad49e20f31ed572e586aa8bbaafb591b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -546,6 +692,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerUpMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: c0cbd673db06831afdfe3d87d293504c
+    assemblyName: sc.terrain.painter.runtime
+    namespaceName: sc.terrain.proceduralpainter
+    className: Slope
   - hash:
       serializedVersion: 2
       Hash: b40f8ffcaa6b71545b8d6ff04b849814
@@ -572,10 +724,22 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: 4a4dfe8ef4d3c631e0638d9940747577
+    assemblyName: sc.terrain.painter.runtime
+    namespaceName: sc.terrain.proceduralpainter
+    className: TextureMask
+  - hash:
+      serializedVersion: 2
       Hash: 1321993db8249e1e05e1e0492b2bbdc3
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnBecameVisibleMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 948871fdf42c0080b99bcf6a4b9a32d2
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlayerAudio
   - hash:
       serializedVersion: 2
       Hash: c9b1ea3bf987a2e780a24849503ca72e
@@ -626,13 +790,7 @@ ScriptsOnlyBuild:
     className: TMP_TextSelector_A
   - hash:
       serializedVersion: 2
-      Hash: ced94507a9b56bd76f22b5467d3f34ac
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: ClickToMove
-  - hash:
-      serializedVersion: 2
-      Hash: 54f155464c4630b8537dd73f3c68642f
+      Hash: 22afeaeff605a4c677c98e066e69b65e
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Enemy
@@ -648,6 +806,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestRunner.Utils
     className: TestRunCallbackListener
+  - hash:
+      serializedVersion: 2
+      Hash: 1ad3dbd13a8d7ad21c349cae9df4cac9
+    assemblyName: sc.terrain.painter.runtime
+    namespaceName: sc.terrain.proceduralpainter
+    className: TerrainPainter
   - hash:
       serializedVersion: 2
       Hash: 5a4aa2850fe11587f47e34c270c7fd22
@@ -692,7 +856,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 766dd1cdc443432d660bc361b7134d13
+      Hash: 1f8992370db9b14001b3adb25b749902
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Dragon
@@ -716,16 +880,16 @@ ScriptsOnlyBuild:
     className: VertexShakeA
   - hash:
       serializedVersion: 2
+      Hash: 9f35850682b527920ebf561f5319f15e
+    assemblyName: Assembly-CSharp
+    namespaceName: TTT
+    className: ForceGrassDistanceInEditor
+  - hash:
+      serializedVersion: 2
       Hash: a1ac4c50e55874de16eee3db71aa9784
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: ToggleGroup
-  - hash:
-      serializedVersion: 2
-      Hash: e5823462815258452a99bae5c05ba11d
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: RandomWalk
   - hash:
       serializedVersion: 2
       Hash: 915204dac8acad99f076d6e72ada0a0f
@@ -738,6 +902,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
     className: Benchmark04
+  - hash:
+      serializedVersion: 2
+      Hash: 1db91470f70b4b909e106a2e7d0ec152
+    assemblyName: Assembly-CSharp
+    namespaceName: TTT
+    className: TerrainQualitySettings
   - hash:
       serializedVersion: 2
       Hash: d90629714fa6b0145fcaffc87f5c6559
@@ -830,6 +1000,12 @@ ScriptsOnlyBuild:
     className: UnityOnControllerColliderHitMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 67b49b0de116c6aa9039887e92978802
+    assemblyName: Assembly-CSharp
+    namespaceName: TTDemoScripts
+    className: SimpleSmoothMouseLook
+  - hash:
+      serializedVersion: 2
       Hash: 960935b102b3064f4b924de16426e340
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -854,7 +1030,13 @@ ScriptsOnlyBuild:
     className: WeaponController
   - hash:
       serializedVersion: 2
-      Hash: f577fb4ec001f45aeebd108c331269d3
+      Hash: d2ba937a92f6be1268c6b74e49511569
+    assemblyName: Assembly-CSharp
+    namespaceName: TTTSamples
+    className: CircleMoverSample
+  - hash:
+      serializedVersion: 2
+      Hash: 99f403e9c10641d8cba3716f62f2e2e3
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerReceive
@@ -864,12 +1046,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Flow
     namespaceName: Unity.VisualScripting
     className: ScriptGraphAsset
-  - hash:
-      serializedVersion: 2
-      Hash: a66cb70a6415d272ddadd842495eb821
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: Oscillator
   - hash:
       serializedVersion: 2
       Hash: 42284ecb06b05bfc619be3758fa5dd7a
@@ -938,6 +1114,12 @@ ScriptsOnlyBuild:
     className: IdleState
   - hash:
       serializedVersion: 2
+      Hash: 798c3eecd867e7e42c3e0942ff657034
+    assemblyName: sc.terrain.painter.runtime
+    namespaceName: sc.terrain.proceduralpainter
+    className: Height
+  - hash:
+      serializedVersion: 2
       Hash: 164a37e0bc379311785dd54beac44331
     assemblyName: Unity.InputSystem
     namespaceName: UnityEngine.InputSystem.Editor
@@ -974,6 +1156,12 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
+      Hash: bc9e5df4730dc2e3e91e4b81a4e8e6b1
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameOver
+  - hash:
+      serializedVersion: 2
       Hash: c78ed13f6b5a632d70d4f73f56ad81f2
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -984,12 +1172,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
-  - hash:
-      serializedVersion: 2
-      Hash: c6509b9c4207045d8dd2493969c5c03e
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: NavMeshSourceTag
   - hash:
       serializedVersion: 2
       Hash: 042785b832afb73fd0585521aa7baf43
@@ -1028,12 +1210,6 @@ ScriptsOnlyBuild:
     className: DictionaryAsset
   - hash:
       serializedVersion: 2
-      Hash: 1b48298d3d0e8814f1b59f9570bd1f40
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: NavMeshPrefabInstance
-  - hash:
-      serializedVersion: 2
       Hash: e7e95903ca66d58e1a7cbd71f824e16d
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -1044,12 +1220,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem
     namespaceName: UnityEngine.InputSystem.OnScreen
     className: OnScreenStick
-  - hash:
-      serializedVersion: 2
-      Hash: 40e000dcdeaca02e490f73c62f8ed781
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: LocalNavMeshBuilder
   - hash:
       serializedVersion: 2
       Hash: 9078325c2a6f6a2d9612ade897511860
@@ -1070,10 +1240,22 @@ ScriptsOnlyBuild:
     className: TMPro_InstructionOverlay
   - hash:
       serializedVersion: 2
+      Hash: 9495f6ae973f1ca14be21b29c7a7bb61
+    assemblyName: sc.terrain.painter.runtime
+    namespaceName: sc.terrain.proceduralpainter
+    className: Modifier
+  - hash:
+      serializedVersion: 2
       Hash: a75a568ce902366f4e82fc98ca6108f5
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
     className: TMP_ExampleScript_01
+  - hash:
+      serializedVersion: 2
+      Hash: cd361d954e9341151b27a2e2c18a1e3a
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: YouWin
   - hash:
       serializedVersion: 2
       Hash: dc31d211c7459841fe4f406ae2e51480
@@ -1106,10 +1288,10 @@ ScriptsOnlyBuild:
     className: UnityOnPointerClickMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 621b1f371dd021ca98883dedcf2f149c
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: EnableIffSleeping
+      Hash: 08356fba90e72bef51e9efae682dc856
+    assemblyName: sc.terrain.painter.runtime
+    namespaceName: sc.terrain.proceduralpainter
+    className: Noise
   - hash:
       serializedVersion: 2
       Hash: aa349b22cd61b9e8488d736f82590d6b
@@ -1160,9 +1342,15 @@ ScriptsOnlyBuild:
     className: TMP_TextEventCheck
   - hash:
       serializedVersion: 2
-      Hash: 9aad97b7ec29b2fd1eab079a63530448
-    assemblyName: NavMeshComponents
-    namespaceName: UnityEngine.AI
+      Hash: 400780932ce14cb0b3a4b4853c675fad
+    assemblyName: Assembly-CSharp
+    namespaceName: TTT
+    className: TreeExplosion
+  - hash:
+      serializedVersion: 2
+      Hash: 8a2f78c25d5e92eb97ee5544a162a2e9
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
     className: NavMeshLink
   - hash:
       serializedVersion: 2
@@ -1208,16 +1396,10 @@ ScriptsOnlyBuild:
     className: UnityOnTriggerStayMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 6d66b164221ca339749d00fc8f26202a
+      Hash: 2cb715ab3fff5e97dd01b5663f67923b
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: EnemyBehaviour
-  - hash:
-      serializedVersion: 2
-      Hash: b1fb95a1a415af71883bbcf24d13d869
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: RandomInstancing
   - hash:
       serializedVersion: 2
       Hash: ab3d19695db8289414a06e6d45fd6c8e
@@ -1232,7 +1414,7 @@ ScriptsOnlyBuild:
     className: Toggle
   - hash:
       serializedVersion: 2
-      Hash: 764074488f1098e7885754986e1785a0
+      Hash: 25ac6e383ded8294639c13dd60758a43
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CardData
@@ -1286,16 +1468,10 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 5dcb2cdb25bf517d68329058a5a0568a
-    assemblyName: NavMeshComponents
-    namespaceName: UnityEngine.AI
+      Hash: 061a5d77ce0aa52a60c21c566c6d8af2
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
     className: NavMeshModifierVolume
-  - hash:
-      serializedVersion: 2
-      Hash: e92fa5dfeec4449978cf7f7a75d0d0c7
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: CardManager
   - hash:
       serializedVersion: 2
       Hash: 0dd14e314956b0d0d83ffcffe60aa46f
@@ -1304,10 +1480,10 @@ ScriptsOnlyBuild:
     className: TMP_DigitValidator
   - hash:
       serializedVersion: 2
-      Hash: 8c1ba0b9a0f964fb3186310f7dea20b5
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: DungeonManager
+      Hash: 5874b789cd9832847c61ebfa803213af
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UIElements
+    className: PanelEventHandler
   - hash:
       serializedVersion: 2
       Hash: d82086405f46de14829f6b4bcbdd8fc9
@@ -1316,15 +1492,9 @@ ScriptsOnlyBuild:
     className: UnityOnBecameInvisibleMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 5874b789cd9832847c61ebfa803213af
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UIElements
-    className: PanelEventHandler
-  - hash:
-      serializedVersion: 2
-      Hash: af7cb0939140d495b9b14989f3a2cc5d
-    assemblyName: NavMeshComponents
-    namespaceName: UnityEngine.AI
+      Hash: d55992199bd2f5a5502658391cdf8ba7
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
     className: NavMeshSurface
   - hash:
       serializedVersion: 2
@@ -1382,6 +1552,18 @@ ScriptsOnlyBuild:
     className: AnimatorMessageListener
   - hash:
       serializedVersion: 2
+      Hash: d499e1fdee53195fcea6281587c6da1b
+    assemblyName: sc.terrain.painter.runtime
+    namespaceName: sc.terrain.proceduralpainter
+    className: TerrainChangeListener
+  - hash:
+      serializedVersion: 2
+      Hash: c4763bde8ffe000ea9c1fdc9a53cb003
+    assemblyName: Assembly-CSharp
+    namespaceName: TTT
+    className: PlaceOnSurfaceAtStart
+  - hash:
+      serializedVersion: 2
       Hash: 33656f83bb0079184b2206a69690ec46
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -1394,7 +1576,13 @@ ScriptsOnlyBuild:
     className: DimensionHopCard
   - hash:
       serializedVersion: 2
-      Hash: 4c700051ced6e0e301865f97522dcdf8
+      Hash: 5999476a429cf1d4c9b10cbbb41e419a
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameOverManager
+  - hash:
+      serializedVersion: 2
+      Hash: 3a0e0f125d7224a656ceb9f0893e7b4e
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Timer
@@ -1416,12 +1604,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Player
-  - hash:
-      serializedVersion: 2
-      Hash: 7cbbbabd30dd9946fd1bdf1ee7a9f97d
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: FreeCam
   - hash:
       serializedVersion: 2
       Hash: da5a949a0bbd2ff91bc51c5805c2c41f
@@ -1466,9 +1648,9 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: ee8cd0514a8c2ed34112742af0a0558c
-    assemblyName: NavMeshComponents
-    namespaceName: UnityEngine.AI
+      Hash: 68f2cb287af2eee1f639824485a3402b
+    assemblyName: Unity.AI.Navigation
+    namespaceName: Unity.AI.Navigation
     className: NavMeshModifier
   - hash:
       serializedVersion: 2
@@ -1476,6 +1658,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 905ca94f01b8950daefaa609dac910a6
+    assemblyName: Assembly-CSharp
+    namespaceName: UnitySampleAssetsModified
+    className: Camera2DFollow
   - hash:
       serializedVersion: 2
       Hash: bc75926bfd3609757f7bf33ff766f026
@@ -1500,6 +1688,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: 6291c1a4418424d7572107eca2c463c2
+    assemblyName: Assembly-CSharp
+    namespaceName: TTT
+    className: KeepOnSurface
   - hash:
       serializedVersion: 2
       Hash: 3074afe1b03a0fb081e176a4ef1b9d09
@@ -1628,7 +1822,7 @@ ScriptsOnlyBuild:
     className: UnityOnScrollRectValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 855d8d1e85ad1e00cf9482510e2201e6
+      Hash: 608a26b1819cc6a644f37d21304557c1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerManager
@@ -1650,12 +1844,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem
     namespaceName: UnityEngine.InputSystem
     className: InputSettings
-  - hash:
-      serializedVersion: 2
-      Hash: 5fd92a9f29e5921b528e379e82aa4b39
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: MeshTool
   - hash:
       serializedVersion: 2
       Hash: a89b0448af4e1cd103a77f9fec0a961f
@@ -1682,7 +1870,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: ec3a4180ce649165cd2ad334a5f6116d
+      Hash: 374202a250bdfd580979f89df03d2a29
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PatrolState
@@ -1698,6 +1886,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnMoveMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: f64a96ff115d65571e495471ec2f15b2
+    assemblyName: Assembly-CSharp
+    namespaceName: TTDemoScripts
+    className: PlayerHoverController
   - hash:
       serializedVersion: 2
       Hash: d0392b7f3f52d5af537ade186b4f51f1
@@ -1730,6 +1924,12 @@ ScriptsOnlyBuild:
     className: MultiplayerEventSystem
   - hash:
       serializedVersion: 2
+      Hash: 529e16822a4363a0b7cc8cdc3e123f7c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MainMenuGameManager
+  - hash:
+      serializedVersion: 2
       Hash: 2bbd05175d4cdd21e24f9716cdd24f83
     assemblyName: Unity.InputSystem
     namespaceName: UnityEngine.InputSystem.XR
@@ -1740,12 +1940,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnMouseOverMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: ce4b451d2ad0f4f3ea24613bdc47e8ac
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: SpawnPrefabOnKeyDown
   - hash:
       serializedVersion: 2
       Hash: 2c583ad0ac85d03e8700dd05fdcb46cb
@@ -1776,6 +1970,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CardDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: d3cc896acab294b10a1f6222e351524c
+    assemblyName: sc.terrain.painter.runtime
+    namespaceName: sc.terrain.proceduralpainter
+    className: Curvature
   - hash:
       serializedVersion: 2
       Hash: c4ae0ec287bc3cde0bc98e1a65f9cef7
@@ -1838,12 +2038,6 @@ ScriptsOnlyBuild:
     className: UnityOnToggleValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 016e966af59cce55c045bf10265659bd
-    assemblyName: NavMeshComponentsExamples
-    namespaceName: 
-    className: DestroyOnTrigger
-  - hash:
-      serializedVersion: 2
       Hash: 8bf800a764665b085fe469e8aea7f167
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1872,15 +2066,11 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 529e16822a4363a0b7cc8cdc3e123f7c
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: MainMenuGameManager
   platform: 19
   scenePathNames:
   - Assets/Main Menu/Main Menu.unity
   - Assets/2D/2D.unity
   - Assets/3D/3D.unity
+  - Assets/YouWin/YouWin.unity
+  - Assets/GameOver (lost)/GameOver.unity
   playerPath: C:/Users/PC/Downloads/Bruh.exe
