@@ -7,9 +7,7 @@ public class PlayerReceive : MonoBehaviour
 {
     public int maxHP = 500;
     public int playerHealth; 
-    //public Animator animator;
     public Collider PlayerCollider;
-    //public Rigidbody rb;
 
     [SerializeField] PlayerHealthbar Playerhealthbar;
 
@@ -22,8 +20,6 @@ public class PlayerReceive : MonoBehaviour
     {
         PlayerCollider = GetComponent<Collider>();
         PlayerCollider.isTrigger = true;
-        //rb = GetComponent<Rigidbody>();
-        //rb.isKinematic = true;   
         Playerhealthbar.UpdatePlayerHealthbar(playerHealth, maxHP);
 
 //Playerpref for Health
@@ -53,7 +49,7 @@ public class PlayerReceive : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.tag == "Enemy") || (other.gameObject.tag == "Dragon"))
+        if ((other.gameObject.tag == "Enemy") || (other.gameObject.tag == "Dragon")) //set so that player takes damage from both enemies 
         {
             TakeDamage(10);
         }

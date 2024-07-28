@@ -12,6 +12,7 @@ public class CardDestroyer : MonoBehaviour
     public CardData cardData;
 
     public AudioClip popSoundEffect;
+
     public bool turnEnd = false;
 
     private void Start()
@@ -24,22 +25,22 @@ public class CardDestroyer : MonoBehaviour
     {
         if (cardData.CardHealorAttack == "Heal" && playerManager.manaAmmount >= cardData.CardCost)
         {
-            playerManager.playerHealth += cardData.CardAttackHealingAmount;
-            playerManager.manaAmmount -= cardData.CardCost;
+            playerManager.playerHealth += cardData.CardAttackHealingAmount; //playerHealth increases
+            playerManager.manaAmmount -= cardData.CardCost; //manaAmmount decreases
             AudioManager.Instance.Play(popSoundEffect);
             playerManager.actionText.text = "Nice! A potion! You healed " + cardData.CardAttackHealingAmount + " health!";
             Destroy(cardPrefab);
         }
         else if (cardData.CardHealorAttack == "Attack" && playerManager.manaAmmount >= cardData.CardCost)
         {
-            playerManager.enemyHealth -= cardData.CardAttackHealingAmount;
-            playerManager.manaAmmount -= cardData.CardCost;
+            playerManager.enemyHealth -= cardData.CardAttackHealingAmount; //enemyHealth decreases
+            playerManager.manaAmmount -= cardData.CardCost; //manaAmmount decreases
             AudioManager.Instance.Play(popSoundEffect);
             playerManager.actionText.text = "Great job! You swung your " + cardData.CardName + " at the enemy and dealt " + cardData.CardAttackHealingAmount + " damage to the enemy!";
             Destroy(cardPrefab);
         } else 
         {
-            turnEnd = true;
+            turnEnd = true; //no more or not a possible move
         }
         
         Debug.Log("Enemy health is " + playerManager.enemyHealth);

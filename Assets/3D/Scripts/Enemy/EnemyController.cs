@@ -5,29 +5,22 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public float lookRadius = 300f; 
+    public float lookRadius = 300f; //detection range of player
 
     Transform target; 
-    //Transform target;
     public NavMeshAgent agent; 
         float speed = 20f; 
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        target = PlayerTracker.instance.player.transform;
-        //target = GameObject.FindGameObjectWithTag("Player"); 
-        agent = GetComponent<NavMeshAgent>();
+        target = PlayerTracker.instance.player.transform; //player
+        agent = GetComponent<NavMeshAgent>(); //enemy
         agent.speed = speed; 
-
-        //float distance = Vector3.Distance(target.position, agent.transform.position); 
-        //agent.SetDestination(target.position);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //agent.destination = target.transform.position; 
         float distance = Vector3.Distance(target.position, agent.transform.position); 
         agent.SetDestination(target.position);
 
@@ -37,7 +30,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void FaceTarget()
+    void FaceTarget() //Rotates enemy so it faces toward players
     {
         Vector3 direction = (target.position - transform.position).normalized; 
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z)); 

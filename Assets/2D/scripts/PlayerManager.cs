@@ -5,9 +5,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-//this script will only be used for spawning cards afterwards 
 
-public class PlayerManager : MonoBehaviour
+
+public class PlayerManager : MonoBehaviour //this script will only be used for spawning cards and store variables for the whole game
 {
     public int playerHealth;
     public int manaAmmount = 10;
@@ -28,19 +28,17 @@ public class PlayerManager : MonoBehaviour
     public DeckControl deckControl;
     public int index = 0;
 
-    public TextMeshProUGUI manaText;
-    public TextMeshProUGUI playerHealthText;
-    public TextMeshProUGUI enemyHealthText;
-    public TextMeshProUGUI actionText;
-    public TextMeshProUGUI turnNumberText;
+    public TextMeshProUGUI manaText; //text to show current player mana
+    public TextMeshProUGUI playerHealthText; //text to show player's health
+    public TextMeshProUGUI enemyHealthText; //text to show enemy's health
+    public TextMeshProUGUI actionText; //text to show action taken
+    public TextMeshProUGUI turnNumberText; //text to show current turn number
 
 
     void Start()
     {
-        Debug.Log("Before loadhealth: " + playerHealth);
         playerTurn = true;   
-        LoadHealth();
-        Debug.Log("After loadhealth: " + playerHealth);
+        LoadHealth(); //Get player's and enemy's health from playerprefs
         gameCycle = 0;
 
     }
@@ -55,26 +53,25 @@ public class PlayerManager : MonoBehaviour
             turnNumberText.text = "Turn: " + gameCycle.ToString();
         } else
         {
-            turnNumberText.text = "Dimension Hopping!"; 
+            turnNumberText.text = "Dimension Hopping!"; //gameCycle == 4 will dimension hop automatically
         }
         
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space)) { //to switch playerTurn
             playerTurn = false;
-            Debug.Log("Space: " + playerTurn);
         }
-//Commented out? 
-        if (playerHealth <= 0 )
+ 
+        if (playerHealth <= 0 ) //gameover scenario where enemy wins
         {
             SceneManager.LoadScene("GameOver");
             gameover = true;
         }
-        else if (enemyHealth <= 0)
+        else if (enemyHealth <= 0) //gameover scenario where player wins
         {
             SceneManager.LoadScene("YouWin");
             gameover = true;
         }
-//Commented out?
+
 
 // Playerpref for Health
         if (Time.timeSinceLevelLoad >= 29)
@@ -99,31 +96,31 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerTurn == true && gameCycle == 0)
+        if (playerTurn == true && gameCycle == 0) //check if it is player's turn
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++) //initial spawn five cards
             {
                 CardSpawn();
             }
-            DimensionHopCardSpawn();
+            DimensionHopCardSpawn(); //spawn the DimensionHopCard if it is a new load of 2D
             gameCycle++;
             Debug.Log("Initialize Gamecycle: " + gameCycle);
             Spawned = true;
         }
         else if (playerTurn == true && Spawned == false)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++) //spawn five cards at once to "refresh" the board of cards
             {
                 CardSpawn();
             }
 
             gameCycle++;
-            manaAmmount = 10;
+            manaAmmount = 10; //reseting player mana amount 
             Spawned = true;
             Debug.Log("Gamecycle: " + gameCycle);
         }
 
-        if (gameCycle == 4)
+        if (gameCycle == 4) //dimensionhop scenario reached
         {
             Debug.Log("Gamecycle: " + gameCycle);
             SceneManager.LoadScene("3D");
@@ -132,23 +129,23 @@ public class PlayerManager : MonoBehaviour
 
     void CardSpawn()
     {
-        GameObject card = Instantiate(Resources.Load(deckControl.playerDeck[index].CardNickname, typeof(GameObject))) as GameObject;
+        GameObject card = Instantiate(Resources.Load(deckControl.playerDeck[index].CardNickname, typeof(GameObject))) as GameObject; //spawn card as a game object into the game
         card.transform.position = nextPos[posAvailable];
         posAvailable++;
         index++;
         if (posAvailable > 4)
         {
-            posAvailable = 0;
+            posAvailable = 0; //loop through the five existing positions to do a full "refresh" of cards on hand each turn
         }
         if (index >= 30)
         {
-            index = 0;
+            index = 0; //ensure there will not be out of range of index
         }
     }
 
     void DimensionHopCardSpawn()
     {
-        GameObject dimensionHopCard = Instantiate(Resources.Load("Dimension Hop", typeof(GameObject))) as GameObject;
-        dimensionHopCard.transform.position = new Vector3(700, 0, 1000);
+        GameObject dimensionHopCard = Instantiate(Resources.Load("Dimension Hop", typeof(GameObject))) as GameObject; //spawn dimensionHop card as a game object into the game
+        dimensionHopCard.transform.position = new Vector3(700, 0, 1000); //fixed position for dimensionHop card as it can only spawn once each load of 2D
     }
 }

@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
 {
     public int maxHP = 500;
     public int theEnemyHealth = 500;
-    //public Animator animator;
     public Collider EnemyCollider;
     public Rigidbody rb;
     public GameObject orange;
@@ -18,7 +17,7 @@ public class Enemy : MonoBehaviour
         healthbar = GetComponentInChildren<Healthbar>();
     }
 
-    void start()
+    void Start()
     {
         EnemyCollider = GetComponent<Collider>();
         EnemyCollider.isTrigger = true;
@@ -64,7 +63,6 @@ public class Enemy : MonoBehaviour
 
         if (theEnemyHealth<=0)
         {
-            //animator.SetTrigger("Dead 0");
             Destroy(orange);
         }
     }

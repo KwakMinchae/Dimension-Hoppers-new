@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardDisplay : MonoBehaviour
+public class CardDisplay : MonoBehaviour //display information of a certain card with cardData onto a card template 
 {
     public CardData cardData;
 
@@ -14,7 +14,7 @@ public class CardDisplay : MonoBehaviour
     public Text cardManaText;
     public Text cardHealOrAttackText;
     public Text cardAmount;
-    // Start is called before the first frame update
+
     void Start()
     {
         cardNameText.text = cardData.CardName;
@@ -23,12 +23,6 @@ public class CardDisplay : MonoBehaviour
         cardManaText.text = cardData.CardCost.ToString();
         cardAmount.text = cardData.CardAttackHealingAmount.ToString();
         cardHealOrAttackText.text = cardData.CardHealorAttack;
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }

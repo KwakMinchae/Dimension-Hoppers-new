@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public class DeckControl : MonoBehaviour
+public class DeckControl : MonoBehaviour //generates player deck and enemy deck
 {
     public List<CardData> cards;
     [SerializeField] public List<CardData> playerDeck = new List<CardData>();
@@ -13,12 +13,12 @@ public class DeckControl : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 30; i++) //generate a random list of 30 cards for the player's deck
         {
             x = Random.Range(0, 4);
             playerDeck[i] = cards[x];
         }
-        for (int j = 0; j < 30; j++)
+        for (int j = 0; j < 30; j++) //generate a random list of 30 cards for the enemy's deck
         {
             x = Random.Range(0, 4);
             enemyDeck[j] = cards[x];
